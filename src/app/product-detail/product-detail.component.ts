@@ -2,20 +2,20 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Product } from '../Product';
-import { ProductService } from '../Product.service';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-Product-detail',
-  templateUrl: './Product-detail.component.html',
-  styleUrls: [ './Product-detail.component.css' ]
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: [ './product-detail.component.css' ]
 })
 export class ProductDetailComponent implements OnInit {
-  @Input() Product: Product;
+  @Input() product: Product;
 
   constructor(
     private route: ActivatedRoute,
-    private ProductService: ProductService,
+    private productService: ProductService,
     private location: Location
   ) {}
 
@@ -25,8 +25,8 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.ProductService.getProduct(id)
-      .subscribe(Product => this.Product = Product);
+    this.productService.getProduct(id)
+      .subscribe(product => this.product = product);
   }
 
   goBack(): void {
@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.ProductService.updateProduct(this.Product)
+    this.productService.updateProduct(this.product)
       .subscribe(() => this.goBack());
   }
 }
