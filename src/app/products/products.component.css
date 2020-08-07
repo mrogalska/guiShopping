@@ -2,8 +2,8 @@
 .products {
   margin: 0 0 2em 0;
   list-style-type: none;
-  padding: 0;
-  width: 15em;
+  /* padding: 0; */
+  width: 25rem;
 }
 .products li {
   position: relative;
@@ -11,7 +11,7 @@
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
-  height: 1.6em;
+  height: 2.5rem;
   border-radius: 4px;
 }
 
@@ -43,9 +43,9 @@
   position: relative;
   left: -1px;
   top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
+  height: 2.5rem;
+  width: 40px;
+  text-align: center;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
@@ -66,9 +66,11 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 194px;
-  top: -32px;
-  background-color: gray !important;
-  color: white;
+  left: 350px;
+  top: -45px;
+  background-color: #d9534f !important;
+  color: #f7f7f7;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
