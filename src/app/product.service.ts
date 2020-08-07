@@ -9,9 +9,10 @@ import { MessageService } from './message.service';
 
 
 @Injectable({ providedIn: 'root' })
+@Injectable()
 export class ProductService {
 
-  private productsUrl = 'api/products';  // URL to web api
+  private productsUrl: string;  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,16 +20,32 @@ export class ProductService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService) {
+      this.productsUrl = 'http://localhost:8080/users';
+    }
+
+    addProduct(product: Product): Observable<Product> {
+      return this.http.post<Product>(this.productsUrl, product);
+    }
+
+    getProducts(): Observable<Product[]> {
+      return this.http.get<Product[]>(this.productsUrl);
+    }
+  
+
+
+
+
+
 
   /** GET products from the server */
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productsUrl)
-      .pipe(
-        tap(_ => this.log('fetched products')),
-        catchError(this.handleError<Product[]>('getProducts', []))
-      );
-  }
+  // getProducts(): Observable<Product[]> {
+  //   return this.http.get<Product[]>(this.productsUrl)
+  //     .pipe(
+  //       tap(_ => this.log('fetched products')),
+  //       catchError(this.handleError<Product[]>('getProducts', []))
+  //     );
+  // }
 
   /** GET product by id. Return `undefined` when id not found */
   getProductNo404<Data>(id: number): Observable<Product> {
@@ -70,12 +87,12 @@ export class ProductService {
   //////// Save methods //////////
 
   /** POST: add a new product to the server */
-  addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
-      tap((newProduct: Product) => this.log(`added product w/ id=${newProduct.id}`)),
-      catchError(this.handleError<Product>('addProduct'))
-    );
-  }
+  // addProduct(product: Product): Observable<Product> {
+  //   return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
+  //     tap((newProduct: Product) => this.log(`added product w/ id=${newProduct.id}`)),
+  //     catchError(this.handleError<Product>('addProduct'))
+  //   );
+  // }
 
   /** DELETE: delete the product from the server */
   deleteProduct(product: Product | number): Observable<Product> {
