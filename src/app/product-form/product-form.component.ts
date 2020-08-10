@@ -23,6 +23,8 @@ export class ProductFormComponent {
     this.productService.addProduct(this.product).subscribe(result => this.goToProductList());
   }
 
+  
+
 
 
   goToProductList() {

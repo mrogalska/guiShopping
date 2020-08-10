@@ -16,7 +16,7 @@ export class ProductService {
 
   httpOptions = {
     headers: new HttpHeaders({ 
-    'Content-Type': 'application/json', 
+    'Content-Type': 'application/json; charset=utf-8', 
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'})
@@ -35,6 +35,33 @@ export class ProductService {
 
     addProduct(product: Product) {
       return this.http.post<Product>(this.productsUrl, product, {headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')});
+    }
+
+    // updateProduct(product: Product): Observable<any> {
+    //   return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
+    //     tap(_ => this.log(`updated product id=${product.id}`)),
+    //     catchError(this.handleError<any>('updateProduct'))
+    //   );
+    // }
+
+    updateProduct(product: Product | number): Observable<any> {
+      const id = typeof product === 'number' ? product : product.id;
+      const url = `${this.productsUrl}/${id}`;
+
+      return this.http.put<Product>(url, product, this.httpOptions).pipe(
+        tap(_ => this.log(`updated product id=${id}`)),
+        catchError(this.handleError<any>('updateProduct'))
+      );
+    }
+
+    deleteProduct(product: Product | number): Observable<Product> {
+      const id = typeof product === 'number' ? product : product.id;
+      const url = `${this.productsUrl}/${id}`;
+  
+      return this.http.delete<Product>(url, this.httpOptions).pipe(
+        tap(_ => this.log(`deleted product id=${id}`)),
+        catchError(this.handleError<Product>('deleteProduct'))
+      );
     }
 
 
@@ -88,34 +115,13 @@ export class ProductService {
     );
   }
 
-  //////// Save methods //////////
+    /** PUT: update the product on the server */
 
-  /** POST: add a new product to the server */
-  // addProduct(product: Product): Observable<Product> {
-  //   return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
-  //     tap((newProduct: Product) => this.log(`added product w/ id=${newProduct.id}`)),
-  //     catchError(this.handleError<Product>('addProduct'))
-  //   );
-  // }
 
   /** DELETE: delete the product from the server */
-  deleteProduct(product: Product | number): Observable<Product> {
-    const id = typeof product === 'number' ? product : product.id;
-    const url = `${this.productsUrl}/${id}`;
 
-    return this.http.delete<Product>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted product id=${id}`)),
-      catchError(this.handleError<Product>('deleteProduct'))
-    );
-  }
 
-  /** PUT: update the product on the server */
-  updateProduct(product: Product): Observable<any> {
-    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
-      tap(_ => this.log(`updated product id=${product.id}`)),
-      catchError(this.handleError<any>('updateProduct'))
-    );
-  }
+
 
   /**
    * Handle Http operation that failed.

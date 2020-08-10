@@ -34,9 +34,9 @@ export class ProductsComponent implements OnInit {
   //     });
   // }
 
-  // delete(product: Product): void {
-  //   this.products = this.products.filter(h => h !== product);
-  //   this.productService.deleteProduct(product).subscribe();
-  // }
+  delete(product: Product): void {
+    this.products = this.products.filter(h => h !== product);
+    this.productService.deleteProduct(product).subscribe();
+  }
 
 }

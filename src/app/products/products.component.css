@@ -1,8 +1,8 @@
 /* ProductsComponent's private CSS styles */
-.products {
+/* .products {
   margin: 0 0 2em 0;
   list-style-type: none;
-  /* padding: 0; */
+  padding: 1rem;
   width: 25rem;
 }
 .products li {
@@ -73,4 +73,31 @@ button.delete {
   height: 2.5rem;
   width: 2.5rem;
 }
+ */
 
+
+.products {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  width: 30rem;
+}
+
+.products li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.products a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+}
+
+.price {
+  text-align: right;
+}
+
+.bi {
+  color:#d9534f;
+}
