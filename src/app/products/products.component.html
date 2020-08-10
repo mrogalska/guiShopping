@@ -21,8 +21,8 @@
     <a routerLink="/detail/{{product.id}}">
       <span class="badge">{{product.id}}</span> {{product.name}} {{product.amount}} {{product.price}}
     </a>
-    <button class="delete btn" title="delete product"
-      (click)="delete(product)">X</button>
+    <!-- <button class="delete btn" title="delete product"
+      (click)="delete(product)">X</button> -->
   </li>
 </ul>
 
@@ -38,11 +38,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of products">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.amount }}</td>
-          <td>{{ user.price }}</td>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.amount }}</td>
+          <td>{{ product.price }}</td>
         </tr>
       </tbody>
     </table>

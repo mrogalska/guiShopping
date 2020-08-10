@@ -15,6 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductService } from './product.service';
 
 @NgModule({
   imports: [
@@ -26,9 +27,9 @@ import { ProductFormComponent } from './product-form/product-form.component';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // )
   ],
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
     ProductSearchComponent,
     ProductFormComponent
   ],
+  providers: [ProductService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

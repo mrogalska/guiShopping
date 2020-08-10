@@ -15,23 +15,27 @@ export class ProductService {
   private productsUrl: string;  // URL to web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 
+    'Content-Type': 'application/json', 
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'})
   };
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) {
-      this.productsUrl = 'http://localhost:8080/users';
-    }
-
-    addProduct(product: Product): Observable<Product> {
-      return this.http.post<Product>(this.productsUrl, product);
+      this.productsUrl = 'http://localhost:8080/products';
     }
 
     getProducts(): Observable<Product[]> {
       return this.http.get<Product[]>(this.productsUrl);
     }
   
+
+    addProduct(product: Product) {
+      return this.http.post<Product>(this.productsUrl, product, {headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')});
+    }
 
 
 
