@@ -18,7 +18,10 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductService } from './product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
-import {MatCheckboxModule, MatCheckbox} from '@angular/material/checkbox'; 
+import {MatCheckboxModule, MatCheckbox} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -28,7 +31,10 @@ import {MatCheckboxModule, MatCheckbox} from '@angular/material/checkbox';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

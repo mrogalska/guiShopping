@@ -107,7 +107,7 @@ button.delete {
 }
 
 table {
-  width: 60%;
+  width: 100%;
 }
 
 tr.mat-footer-row {
@@ -118,4 +118,19 @@ tr.mat-footer-row {
   color: #607D8B;
   background-color: #DDD;
   bottom: .1em;
+}
+
+.add {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.button-add {
+  background-color: #5cb85c
+}
+
+.edit {
+  position: relative;
+  left: 5rem;
+  cursor: pointer;
 }

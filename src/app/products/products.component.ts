@@ -12,7 +12,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'amount', 'price'];
+  displayedColumns: string[] = ['name', 'amount', 'price', 'id'];
   products: Product[];
 
 
