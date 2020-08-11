@@ -14,6 +14,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class ProductsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'amount', 'price', 'id'];
   products: Product[];
+  showOptions: number = 0;
 
 
 

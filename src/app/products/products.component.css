@@ -1,113 +1,8 @@
 /* ProductsComponent's private CSS styles */
-/* .products {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 1rem;
-  width: 25rem;
-}
-.products li {
-  position: relative;
-  cursor: pointer;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 2.5rem;
-  border-radius: 4px;
-}
 
-.products li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-
-.products a {
-  color: #333;
-  text-decoration: none;
-  position: relative;
-  display: block;
-  width: 250px;
-}
-
-.products a:hover {
-  color: #607D8B;
-}
-
-.products .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 2.5rem;
-  width: 40px;
-  text-align: center;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-
-button {
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  font-family: Arial;
-}
-
-button:hover {
-  background-color: #cfd8dc;
-}
-
-button.delete {
-  position: relative;
-  left: 350px;
-  top: -45px;
-  background-color: #d9534f !important;
-  color: #f7f7f7;
-  height: 2.5rem;
-  width: 2.5rem;
-}
- */
-
-
-.products {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  width: 30rem;
-}
-
-.products li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-
-.products a {
-  color: #333;
-  text-decoration: none;
-  position: relative;
-}
-
-.price {
-  text-align: right;
-}
-
-.bi {
-  color:#d9534f;
-}
-
-.table.container{
-  width: 30rem;
-}
 
 table {
-  width: 100%;
+  width: 75%;
 }
 
 tr.mat-footer-row {
@@ -115,8 +10,8 @@ tr.mat-footer-row {
 }
 
 .mat-row:hover {
-  color: #607D8B;
-  background-color: #DDD;
+  color: #868e96;
+  background-color: #f7f7f7;
   bottom: .1em;
 }
 
@@ -129,8 +24,16 @@ tr.mat-footer-row {
   background-color: #5cb85c
 }
 
-.edit {
-  position: relative;
-  left: 5rem;
+.header-align-right {
+  text-align: right;
+}
+
+a {
   cursor: pointer;
+  color: #868e96;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
