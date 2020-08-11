@@ -101,3 +101,21 @@ button.delete {
 .bi {
   color:#d9534f;
 }
+
+.table.container{
+  width: 30rem;
+}
+
+table {
+  width: 60%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-row:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  bottom: .1em;
+}
