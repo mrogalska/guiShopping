@@ -15,7 +15,8 @@ export class ProductsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'amount', 'price', 'id'];
   products: Product[];
   showOptions: number = 0;
-
+  pricesArray: number[];
+  amountArray: number[];
 
 
   constructor(private productService: ProductService) { }
@@ -31,13 +32,24 @@ export class ProductsComponent implements OnInit {
     this.productService.deleteProduct(product).subscribe();
   }
 
-  getTotalCost(t: Product): number {
-    return this.products.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  getTotalCost(): number {
+    this.pricesArray = this.products.map(t => t.price);
+    this.amountArray = this.products.map(t => t.amount);
+    var prod = [];
+    for(var i = 0; i < this.amountArray.length; i++) {
+      prod.push(this.pricesArray[i] * this.amountArray[i]);
+    }
+    console.log(prod);
+    return prod.reduce(this.sum, 0);
   }
 
-  getTotalAmount(t: Product): number {
+  getTotalAmount(): number {
     return this.products.map(t => t.amount).reduce((acc, value) => acc + value, 0);
   }
+
+  sum(a, b): number {
+    return a + b;
+}
 
 }
 
