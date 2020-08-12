@@ -16,6 +16,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
 import { MessagesComponent } from './messages/messages.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductService } from './product.service';
+import { Category } from './category';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {MatCheckboxModule, MatCheckbox} from '@angular/material/checkbox';
@@ -24,6 +25,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatInputModule} from '@angular/material/input';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -38,7 +40,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

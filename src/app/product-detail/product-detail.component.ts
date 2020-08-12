@@ -5,6 +5,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { Category } from '../category';
 
 
 
@@ -15,6 +16,8 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() product: Product;
+  public category = Category;
+  public categories = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +27,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
+    this.categories = Object.keys(this.category);
   }
 
   getProduct(): void {

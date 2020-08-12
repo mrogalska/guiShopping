@@ -12,11 +12,10 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'amount', 'price', 'id'];
+  displayedColumns: string[] = ['name', 'category', 'price', 'id'];
   products: Product[];
   showOptions: number = 0;
   pricesArray: number[];
-  amountArray: number[];
 
 
   constructor(private productService: ProductService) { }
@@ -32,24 +31,24 @@ export class ProductsComponent implements OnInit {
     this.productService.deleteProduct(product).subscribe();
   }
 
-  getTotalCost(): number {
-    this.pricesArray = this.products.map(t => t.price);
-    this.amountArray = this.products.map(t => t.amount);
-    var prod = [];
-    for(var i = 0; i < this.amountArray.length; i++) {
-      prod.push(this.pricesArray[i] * this.amountArray[i]);
-    }
-    console.log(prod);
-    return prod.reduce(this.sum, 0);
-  }
+  // getTotalCost(): number {
+  //   this.pricesArray = this.products.map(t => t.price);
+  //   this.amountArray = this.products.map(t => t.amount);
+  //   var prod = [];
+  //   for(var i = 0; i < this.amountArray.length; i++) {
+  //     prod.push(this.pricesArray[i] * this.amountArray[i]);
+  //   }
+  //   console.log(prod);
+  //   return prod.reduce(this.sum, 0);
+  // }
 
-  getTotalAmount(): number {
-    return this.products.map(t => t.amount).reduce((acc, value) => acc + value, 0);
-  }
+  // getTotalAmount(): number {
+  //   return this.products.map(t => t.amount).reduce((acc, value) => acc + value, 0);
+  // }
 
-  sum(a, b): number {
-    return a + b;
-}
+//   sum(a, b): number {
+//     return a + b;
+// }
 
 }
 
