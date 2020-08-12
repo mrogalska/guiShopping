@@ -1,17 +1,27 @@
 <div class="container-fluid" *ngIf="product">
-  <h2>{{product.name | uppercase}} Details</h2>
-  <!-- <div><span>id: </span>{{product.id}}</div> -->
-  <div class="row">
-    <label class="col-3"> name:
-      <p><input [(ngModel)]="product.name" placeholder="name"/></p>
-    </label>
-    <label class="col-2">amount:
-      <p><input [(ngModel)]="product.amount" placeholder="amount"/></p>
-    </label>
-    <label class="col-2">price:
-      <p><input [(ngModel)]="product.price" placeholder="price"/></p>
-    </label>
-  </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-</div>
+    <h2>Update product {{product.name | uppercase}}</h2>
+      <mat-form-field class="name-form">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="product.name" matInput placeholder="name" value="{{product.name}}">
+      </mat-form-field>
+      <mat-form-field class="amount-form">
+        <mat-label>Amount</mat-label>
+        <input type="number" [(ngModel)]="product.amount" matInput placeholder="amount" value="{{product.amount}}">
+      </mat-form-field>
+      <mat-form-field class="price-form">
+        <mat-label>Price</mat-label>
+        <input type="number" [(ngModel)]="product.price" matInput placeholder="price" value="{{product.price}}">
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+
+      <p>
+        <button (click)="save()" mat-raised-button color="primary">Save</button>
+        <button (click)="goBack()" mat-stroked-button color="primary">Go back</button>
+      </p>
+    </div>
+
+
+
+
+
+

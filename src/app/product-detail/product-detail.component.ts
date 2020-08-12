@@ -1,9 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+
+
 
 @Component({
   selector: 'app-product-detail',
@@ -37,4 +40,6 @@ export class ProductDetailComponent implements OnInit {
     this.productService.updateProduct(this.product)
       .subscribe(() => this.goBack());
   }
+
 }
+
